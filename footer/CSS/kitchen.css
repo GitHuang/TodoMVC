@@ -1,0 +1,22 @@
+
+   
+body {
+font: 13px/24px "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-weight: 300;
+color: #2c3638;
+background: #36c0d8;
+background: -moz-linear-gradient(top, #36c0d8 0%, #068ea3 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#36c0d8), color-stop(100%,#068ea3));
+background: -webkit-linear-gradient(top, #36c0d8 0%,#068ea3 100%);
+background: -o-linear-gradient(top, #36c0d8 0%,#068ea3 100%);
+background: -ms-linear-gradient(top, #36c0d8 0%,#068ea3 100%);
+background: linear-gradient(to bottom, #36c0d8 0%,#068ea3 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#36c0d8', endColorstr='#068ea3',GradientType=0 );
+}
+
+
+
+#content{
+
+  height: 1000px;
+}
