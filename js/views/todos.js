@@ -2,23 +2,17 @@
 
   var app = app || {};
 
-  // Todo Item View
-  // --------------
-
-  // The DOM element for a todo item...
+ 
   app.TodoView = Backbone.View.extend({
 
-    //... is a list tag.
     tagName: 'li',
-
-    // Cache the template function for a single item.
     template: _.template( $('#item-template').html() ),
 
     // The DOM events specific to an item.
     events: {
-      'click .toggle': 'togglecompleted', // NEW
+      'click .toggle': 'togglecompleted', 
       'dblclick label': 'edit',
-      'click .destroy': 'clear',           // NEW
+      'click .destroy': 'clear',           
       'keypress .edit': 'updateOnEnter',
       'blur .edit': 'close'
     },
@@ -28,27 +22,27 @@
     // app, we set a direct reference on the model for convenience.
     initialize: function() {
       this.listenTo(this.model, 'change', this.render);
-      this.listenTo(this.model, 'destroy', this.remove);        // NEW
-      this.listenTo(this.model, 'visible', this.toggleVisible); // NEW
+      this.listenTo(this.model, 'destroy', this.remove);       
+      this.listenTo(this.model, 'visible', this.toggleVisible); 
     },
 
     // Re-render the titles of the todo item.
     render: function() {
       this.$el.html( this.template( this.model.toJSON() ) );
 
-      this.$el.toggleClass( 'completed', this.model.get('completed') ); // NEW
-    //  this.toggleVisible();                                             // NEW
+      this.$el.toggleClass( 'completed', this.model.get('completed') ); 
+    //  this.toggleVisible();                                            
 
       this.$input = this.$('.edit');
       return this;
     },
 
-    // NEW - Toggles visibility of item
+    // Toggles visibility of item
     toggleVisible : function () {
       this.$el.toggleClass( 'hidden',  this.isHidden());
     },
 
-    // NEW - Determines if item should be hidden
+    // Determines if item should be hidden
     isHidden : function () {
       var isCompleted = this.model.get('completed');
       return ( // hidden cases only
@@ -57,7 +51,7 @@
       );
     },
 
-    // NEW - Toggle the `"completed"` state of the model.
+    //Toggle the `"completed"` state of the model.
     togglecompleted: function() {
       this.model.toggle();
     },
@@ -88,7 +82,7 @@
       }
     },
 
-    // NEW - Remove the item, destroy the model from *localStorage* and delete its view.
+    // Remove the item, destroy the model from *localStorage* and delete its view.
     clear: function() {
       this.model.destroy();
     }
